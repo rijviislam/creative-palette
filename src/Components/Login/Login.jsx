@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 export default function Login() {
@@ -18,6 +19,23 @@ export default function Login() {
     loginUser(email, password)
       .then((res) => {
         console.log(res.user);
+        Swal.fire({
+          title: "Login Successfully!",
+          showClass: {
+            popup: `
+              animate__animated
+              animate__fadeInUp
+              animate__faster
+            `,
+          },
+          hideClass: {
+            popup: `
+              animate__animated
+              animate__fadeOutDown
+              animate__faster
+            `,
+          },
+        });
         reset();
       })
       .catch((error) => {

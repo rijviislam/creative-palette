@@ -13,12 +13,16 @@ export default function Navbar() {
       <li>
         <Link to="/allartandcraftitem">All Art & Craft Item</Link>
       </li>
-      <li>
-        <Link to="/addcraftitem">Add Craft Item</Link>
-      </li>
-      <li>
-        <Link to="/myartandcraftlist">My Art & Craft List</Link>
-      </li>
+      {user && (
+        <>
+          <li>
+            <Link to="/addcraftitem">Add Craft Item</Link>
+          </li>
+          <li>
+            <Link to="/myartandcraftlist">My Art & Craft List</Link>
+          </li>
+        </>
+      )}
     </>
   );
   return (

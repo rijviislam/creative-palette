@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 export default function Register() {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateImageAndName, setReload } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -15,6 +16,26 @@ export default function Register() {
     createUser(email, password)
       .then((res) => {
         console.log(res.user);
+        updateImageAndName(name, image).then(() => {
+          setReload(true);
+        });
+        Swal.fire({
+          title: "Register Successfully!",
+          showClass: {
+            popup: `
+              animate__animated
+              animate__fadeInUp
+              animate__faster
+            `,
+          },
+          hideClass: {
+            popup: `
+              animate__animated
+              animate__fadeOutDown
+              animate__faster
+            `,
+          },
+        });
         reset();
       })
       .catch((error) => {
@@ -71,17 +92,18 @@ export default function Register() {
           </div>
           <div className="space-y-1 text-sm">
             <label
-              htmlFor="image"
+              htmlFor="imageurl"
               className="block text-gray-400 dark:text-gray-600"
             >
               Image
             </label>
             <input
-              type="text"
-              name="image"
-              id="image"
+              type="imageurl"
+              name="imageurl"
+              id="imageurl"
               placeholder="Enter a Image URL"
               className="w-full px-4 py-3 rounded-md border-gray-700 dark:border-gray-300 bg-gray-900 dark:bg-gray-50 text-gray-100 dark:text-gray-800 focus:border-violet-400 focus:dark:border-violet-600"
+              {...register("image", { required: true })}
             />
           </div>
           <div className="space-y-1 text-sm">

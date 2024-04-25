@@ -3,8 +3,10 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
+import Swal from "sweetalert2";
 import auth from "../Firebase/firebase.config";
 
 export const AuthContext = createContext(null);
@@ -40,7 +42,32 @@ export default function AuthProvider({ children }) {
 
   const logOutUser = () => {
     setLoader(true);
+    Swal.fire({
+      title: "Log out successfully!",
+      showClass: {
+        popup: `
+          animate__animated
+          animate__fadeInUp
+          animate__faster
+        `,
+      },
+      hideClass: {
+        popup: `
+          animate__animated
+          animate__fadeOutDown
+          animate__faster
+        `,
+      },
+    });
     return signOut(auth);
+  };
+
+  // UPDATE USER IMAGE AND NAME //
+  const updateImageAndName = (name, image) => {
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: image,
+    });
   };
   const allvalues = {
     user,
@@ -49,6 +76,7 @@ export default function AuthProvider({ children }) {
     loginUser,
     setReload,
     logOutUser,
+    updateImageAndName,
   };
   return (
     <div>
