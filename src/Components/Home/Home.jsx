@@ -1,7 +1,11 @@
+import Banner from "../Banner/Banner";
+import CraftItems from "../CraftItems/CraftItems";
+
 export default function Home() {
   return (
     <div>
-      <h2 className="text-3xl">Home</h2>
+      <Banner />
+      <CraftItems />
     </div>
   );
 }
