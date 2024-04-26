@@ -1,7 +1,6 @@
 import CraftItemCard from "../CraftItemCard/CraftItemCard";
 
 export default function CraftItems({ loadedCraft }) {
-  console.log(loadedCraft);
   return (
     <div className="flex flex-col items-center">
       <h2 className="text-4xl font-bold my-5">Craft Item</h2>

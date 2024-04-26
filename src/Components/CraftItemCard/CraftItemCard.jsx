@@ -1,5 +1,4 @@
 export default function CraftItemCard({ craftItem }) {
-  console.log(craftItem);
   const {
     image,
     name,

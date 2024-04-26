@@ -1,19 +1,7 @@
-import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
-import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 export default function AddCraftItem() {
-  const { user } = useContext(AuthContext) || {};
-  // const { email, displayName } = user;
-  // const displayName = user.displayName;
-  // console.log(user);
-  // console.log(email, displayName);
-
-  const mail = user.email;
-  const displayname = user.displayName;
-  console.log(mail, displayname);
-
   const {
     register,
     handleSubmit,
@@ -21,9 +9,14 @@ export default function AddCraftItem() {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    // console.log(user);
-
-    const { name, subcategory_Name, shortdescription, customization } = data;
+    const {
+      name,
+      subcategory_Name,
+      mail,
+      shortdescription,
+      displayname,
+      customization,
+    } = data;
     console.log(data);
     fetch("http://localhost:5000/craftitem", {
       method: "POST",

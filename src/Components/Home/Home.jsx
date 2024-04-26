@@ -9,7 +9,7 @@ export default function Home() {
     <div>
       <Banner />
       <CraftItems loadedCraft={loadedCraft} />
-      <ArtAndCraftCategories />
+      <ArtAndCraftCategories loadedCraft={loadedCraft} />
     </div>
   );
 }
