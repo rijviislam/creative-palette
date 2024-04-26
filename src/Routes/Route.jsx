@@ -16,11 +16,12 @@ export const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       {
-        path: "/",
+        path: "/home",
         element: <Home />,
+        loader: () => fetch("http://localhost:5000/craftitem"),
       },
       {
-        path: "/",
+        path: "/home",
         element: <Banner />,
       },
       {
