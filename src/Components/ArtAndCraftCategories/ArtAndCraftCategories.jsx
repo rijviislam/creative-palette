@@ -10,7 +10,6 @@ export default function ArtAndCraftCategories() {
         setArtandcraft(data);
       });
   }, []);
-  console.log(artandcraft);
   return (
     <div className="w-full">
       <h2 className="text-3x">Art And Craft Categories</h2>

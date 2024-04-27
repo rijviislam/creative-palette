@@ -52,6 +52,7 @@ export const router = createBrowserRouter([
       {
         path: "/myartandcraftlist",
         element: <MyArtAndCraftList />,
+        loader: () => fetch(`http://localhost:5000/craftitem`),
       },
       {
         path: "/home",
