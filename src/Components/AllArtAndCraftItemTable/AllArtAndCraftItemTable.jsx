@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 export default function AllArtAndCraftItemTable({ allData }) {
-  const { _id, name, subcategory_Name, displayname, useremail, userImage } =
+  const { _id, name, subcategory_Name, displayName, email, userImage } =
     allData;
   console.log(allData);
 
@@ -15,8 +15,8 @@ export default function AllArtAndCraftItemTable({ allData }) {
             </div>
           </div>
           <div>
-            <div className="font-bold">{displayname}</div>
-            <div className="text-sm opacity-50">{useremail}</div>
+            <div className="font-bold">{displayName}</div>
+            <div className="text-sm opacity-50">{email}</div>
           </div>
         </div>
       </td>

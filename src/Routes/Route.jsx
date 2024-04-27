@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import ArtAndCraftCategories from "../Components/ArtAndCraftCategories/ArtAndCraftCategories";
 import Banner from "../Components/Banner/Banner";
 import Details from "../Components/Details/Details";
 import Home from "../Components/Home/Home";
@@ -51,6 +52,10 @@ export const router = createBrowserRouter([
       {
         path: "/myartandcraftlist",
         element: <MyArtAndCraftList />,
+      },
+      {
+        path: "/home",
+        element: <ArtAndCraftCategories />,
       },
     ],
   },

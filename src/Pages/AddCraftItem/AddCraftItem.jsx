@@ -20,8 +20,8 @@ export default function AddCraftItem() {
       subcategory_Name,
       shortdescription,
       customization,
-      useremail,
-      displayname,
+      email,
+      displaName,
       userImage,
     } = data;
     console.log(data);
@@ -286,20 +286,20 @@ export default function AddCraftItem() {
                   <div className="flex gap-8">
                     <div className="flex items-center gap-2">
                       <input
-                        id="useremail"
+                        id="email"
                         type="hidden"
                         defaultValue={email}
-                        name="useremail"
-                        {...register("useremail")}
+                        name="email"
+                        {...register("email")}
                       />
                     </div>
                     <div className="flex items-center gap-2">
                       <input
-                        id="displayname"
+                        id="displayName"
                         type="hidden"
                         defaultValue={displaName}
-                        name="displayname"
-                        {...register("displayname")}
+                        name="displayName"
+                        {...register("displayName")}
                       />
                     </div>
                     <div className="flex items-center gap-2">
