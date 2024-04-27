@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Banner from "../Components/Banner/Banner";
+import Details from "../Components/Details/Details";
 import Home from "../Components/Home/Home";
 import Login from "../Components/Login/Login";
 import Register from "../Components/Register/Register";
@@ -23,6 +24,12 @@ export const router = createBrowserRouter([
       {
         path: "/home",
         element: <Banner />,
+      },
+      {
+        path: "/details/:id",
+        element: <Details />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/craftitem/${params.id}`),
       },
       {
         path: "/login",

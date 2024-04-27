@@ -4,9 +4,9 @@ import AllArtAndCraftItemTable from "../../Components/AllArtAndCraftItemTable/Al
 export default function AllArtAndCraftItem() {
   const loadedAllArtandCraftItem = useLoaderData();
   return (
-    <div>
+    <div className="flex flex-col items-center justify-center">
       <h2 className="text-3xl">All Art And Craft Item</h2>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto my-10">
         <table className="table">
           <thead>
             <tr>

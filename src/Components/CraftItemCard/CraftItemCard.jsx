@@ -1,5 +1,8 @@
+import { Link } from "react-router-dom";
+
 export default function CraftItemCard({ craftItem }) {
   const {
+    _id,
     image,
     name,
     price,
@@ -33,7 +36,10 @@ export default function CraftItemCard({ craftItem }) {
             {stockStatus}
           </p>
         </div>
-        <button className="btn">View Details</button>
+
+        <Link to={`/details/${_id}`} className="btn">
+          View Details
+        </Link>
       </div>
     </div>
   );

@@ -1,5 +1,8 @@
+import { Link } from "react-router-dom";
+
 export default function AllArtAndCraftItemTable({ allData }) {
-  const { name, subcategory_Name } = allData;
+  const { _id, name, subcategory_Name } = allData;
+  console.log(allData);
 
   return (
     <tr>
@@ -22,7 +25,12 @@ export default function AllArtAndCraftItemTable({ allData }) {
       <td>{name}</td>
       <td>{subcategory_Name}</td>
       <th>
-        <button className="btn badge-accent *: btn-xs">Details</button>
+        <Link
+          to={`/details/${_id}`}
+          className="badge-info px-3 py-2 rounded-lg"
+        >
+          View Details
+        </Link>
       </th>
     </tr>
   );
