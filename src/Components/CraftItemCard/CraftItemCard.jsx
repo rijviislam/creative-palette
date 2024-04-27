@@ -1,16 +1,7 @@
 import { Link } from "react-router-dom";
 
 export default function CraftItemCard({ craftItem }) {
-  const {
-    _id,
-    image,
-    name,
-    price,
-    processing_time,
-    stockStatus,
-    subcategory_Name,
-    shortdescription,
-  } = craftItem;
+  const { _id, image, name, price, stockStatus, subcategory_Name } = craftItem;
   return (
     <div className="card w-96 bg-base-100 shadow-xl">
       <figure>
@@ -21,22 +12,13 @@ export default function CraftItemCard({ craftItem }) {
           {name}
           <div className="badge badge-info">{subcategory_Name}</div>
         </h2>
-        <p>{shortdescription}</p>
         <div className="card-actions justify-end">
           <p>
             <strong>Price: </strong>
             {price}
           </p>
-          <p>
-            <strong>Processing Time: </strong>
-            {processing_time}
-          </p>
-          <p>
-            <strong>Stock Status: </strong>
-            {stockStatus}
-          </p>
+          <div className="badge badge-info font-semibold">{stockStatus}</div>
         </div>
-
         <Link to={`/details/${_id}`} className="btn">
           View Details
         </Link>

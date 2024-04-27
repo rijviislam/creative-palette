@@ -1,7 +1,13 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 export default function AddCraftItem() {
+  const { user } = useContext(AuthContext);
+  const email = user.email;
+  const displaName = user.displayName;
+  const userImage = user.photoURL;
   const {
     register,
     handleSubmit,
@@ -12,10 +18,11 @@ export default function AddCraftItem() {
     const {
       name,
       subcategory_Name,
-      mail,
       shortdescription,
-      displayname,
       customization,
+      useremail,
+      displayname,
+      userImage,
     } = data;
     console.log(data);
     fetch("http://localhost:5000/craftitem", {
@@ -234,7 +241,6 @@ export default function AddCraftItem() {
                     </div>
                   </div>
                 </div>
-
                 <div>
                   <div className="flex justify-between mb-2">
                     <label htmlFor="stockStatus" className="text-sm">
@@ -252,7 +258,7 @@ export default function AddCraftItem() {
                       <input
                         id="in_stock"
                         type="radio"
-                        value="in_stock"
+                        value="in stock"
                         name="radio-1"
                         className="radio radio-success"
                         {...register("stockStatus")}
@@ -268,10 +274,41 @@ export default function AddCraftItem() {
                       <input
                         id="made_to_order"
                         type="radio"
-                        value="made_to_order"
+                        value="made to order"
                         name="radio-1"
                         className="radio radio-success"
                         {...register("stockStatus")}
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div className="flex gap-8">
+                    <div className="flex items-center gap-2">
+                      <input
+                        id="useremail"
+                        type="hidden"
+                        defaultValue={email}
+                        name="useremail"
+                        {...register("useremail")}
+                      />
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <input
+                        id="displayname"
+                        type="hidden"
+                        defaultValue={displaName}
+                        name="displayname"
+                        {...register("displayname")}
+                      />
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <input
+                        id="userImage"
+                        type="hidden"
+                        defaultValue={userImage}
+                        name="userImage"
+                        {...register("userImage")}
                       />
                     </div>
                   </div>

@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 
 export default function AllArtAndCraftItemTable({ allData }) {
-  const { _id, name, subcategory_Name } = allData;
+  const { _id, name, subcategory_Name, displayname, useremail, userImage } =
+    allData;
   console.log(allData);
 
   return (
@@ -10,15 +11,12 @@ export default function AllArtAndCraftItemTable({ allData }) {
         <div className="flex items-center gap-3">
           <div className="avatar">
             <div className="mask mask-squircle w-12 h-12">
-              <img
-                src="/tailwind-css-component-profile-2@56w.png"
-                alt="Avatar Tailwind CSS Component"
-              />
+              <img src={userImage} alt="Avatar Tailwind CSS Component" />
             </div>
           </div>
           <div>
-            <div className="font-bold">Hart Hagerty</div>
-            <div className="text-sm opacity-50">United States</div>
+            <div className="font-bold">{displayname}</div>
+            <div className="text-sm opacity-50">{useremail}</div>
           </div>
         </div>
       </td>
