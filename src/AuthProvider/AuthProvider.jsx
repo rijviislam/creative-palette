@@ -2,14 +2,19 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
   signOut,
   updateProfile,
 } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth/cordova";
 import { createContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import auth from "../Firebase/firebase.config";
 
 export const AuthContext = createContext(null);
+const googleProvider = new GoogleAuthProvider();
+const githubProvider = new GithubAuthProvider();
+
 export default function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loader, setLoader] = useState(true);
@@ -69,6 +74,19 @@ export default function AuthProvider({ children }) {
       photoURL: image,
     });
   };
+
+  // -----SOCIAL LOGIN----- //
+
+  // GOOGLE LOGIN //
+  const googleLogin = () => {
+    setLoader(true);
+    return signInWithPopup(auth, googleProvider);
+  };
+  // GITHUB LOGIN //
+  const githubLogin = () => {
+    setLoader(true);
+    return signInWithPopup(auth, githubProvider);
+  };
   const allvalues = {
     user,
     loader,
@@ -77,6 +95,8 @@ export default function AuthProvider({ children }) {
     setReload,
     logOutUser,
     updateImageAndName,
+    googleLogin,
+    githubLogin,
   };
   return (
     <div>

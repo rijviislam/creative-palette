@@ -1,7 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import ArtAndCraftCategories from "../Components/ArtAndCraftCategories/ArtAndCraftCategories";
 import Canvas from "../Components/Canvas/Canvas";
-import Categories from "../Components/Categories/Categories";
 import Details from "../Components/Details/Details";
 import Home from "../Components/Home/Home";
 import Login from "../Components/Login/Login";
@@ -12,6 +11,7 @@ import AddCraftItem from "../Pages/AddCraftItem/AddCraftItem";
 import AllArtAndCraftItem from "../Pages/AllArtAndCraftItem/AllArtAndCraftItem";
 import Error from "../Pages/Error/Error";
 import MyArtAndCraftList from "../Pages/MyArtAndCraftList/MyArtAndCraftList";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -26,17 +26,20 @@ export const router = createBrowserRouter([
       },
       {
         path: "/details/:id",
-        element: <Details />,
+        element: (
+          <PrivateRoute>
+            <Details />
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/craftitem/${params.id}`),
       },
-      {
-        path: "/craftitemCategory/:subcategory_Name",
-        element: <Categories />,
-        loader: ({ params }) =>
-          fetch(`http://localhost:5000/craftitem/${params.subcategory_Name}`),
-      },
-
+      // {
+      //   path: "/craftitemCategory/:subcategory_Name",
+      //   element: <Categories />,
+      //   loader: ({ params }) =>
+      //     fetch(`http://localhost:5000/craftitem/${params.subcategory_Name}`),
+      // },
       {
         path: "/login",
         element: <Login />,
@@ -52,11 +55,19 @@ export const router = createBrowserRouter([
       },
       {
         path: "/addcraftitem",
-        element: <AddCraftItem />,
+        element: (
+          <PrivateRoute>
+            <AddCraftItem />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/myartandcraftlist",
-        element: <MyArtAndCraftList />,
+        element: (
+          <PrivateRoute>
+            <MyArtAndCraftList />
+          </PrivateRoute>
+        ),
         loader: () => fetch(`http://localhost:5000/craftitem`),
       },
       {
@@ -69,7 +80,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/update/:id",
-        element: <Update />,
+        element: (
+          <PrivateRoute>
+            <Update />
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/craftitem/${params.id}`),
       },
