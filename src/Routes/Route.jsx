@@ -30,6 +30,13 @@ export const router = createBrowserRouter([
           fetch(`http://localhost:5000/craftitem/${params.id}`),
       },
       {
+        path: "/craftitemCategory/:subcategory_Name",
+        element: <Categories />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/craftitem/${params.subcategory_Name}`),
+      },
+
+      {
         path: "/login",
         element: <Login />,
       },
@@ -51,10 +58,7 @@ export const router = createBrowserRouter([
         element: <MyArtAndCraftList />,
         loader: () => fetch(`http://localhost:5000/craftitem`),
       },
-      {
-        path: "/category",
-        element: <Categories />,
-      },
+
       {
         path: "/",
         element: <ArtAndCraftCategories />,
@@ -65,6 +69,11 @@ export const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:5000/craftitem/${params.id}`),
       },
+      // {
+      //   path: "/craftitemCategory/:",
+      //   element: <Categories />,
+      //   loader: () => fetch(`http://localhost:5000/craftitem`),
+      // },
     ],
   },
 ]);

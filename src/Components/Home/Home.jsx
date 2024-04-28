@@ -4,7 +4,6 @@ import CraftItems from "../CraftItems/CraftItems";
 
 export default function Home() {
   const loadedCraft = useLoaderData();
-  console.log(loadedCraft);
   return (
     <div>
       <CraftItems loadedCraft={loadedCraft} />

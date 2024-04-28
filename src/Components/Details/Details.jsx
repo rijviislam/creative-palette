@@ -2,7 +2,6 @@ import { Link, useLoaderData } from "react-router-dom";
 
 export default function Details() {
   const loadedDetails = useLoaderData();
-  console.log(loadedDetails);
   const {
     subcategory_Name,
     stockStatus,

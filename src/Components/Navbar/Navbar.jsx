@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { Tooltip } from "react-tooltip";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 export default function Navbar() {
@@ -100,6 +101,8 @@ export default function Navbar() {
             <div className="w-10 h-10  overflow-hidden rounded-full">
               <img
                 data-tooltip-id="my-tooltip"
+                data-tooltip-content={user?.displayName}
+                data-tooltip-place="top"
                 className="w-full h-full object-cover"
                 src={user?.photoURL || "https://i.ibb.co/HGCGmV3/OIP.jpg"}
               />
@@ -113,6 +116,7 @@ export default function Navbar() {
           </div>
         )}
       </div>
+      <Tooltip id="my-tooltip" />
     </div>
   );
 }

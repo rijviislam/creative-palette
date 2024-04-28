@@ -8,6 +8,10 @@ export default function MyArtAndCraftList() {
   const email = user?.email;
   const load = useLoaderData();
   const filterData = load.filter((item) => item.email === email);
+  const filterYesorNo = load.filter((data) => data.customization === "Yes");
+
+  // console.log(filterData);
+  console.log(filterYesorNo);
   return (
     <div className="flex flex-col items-center">
       <h2 className="text-3xl">My Art And Craft List</h2>
@@ -21,15 +25,16 @@ export default function MyArtAndCraftList() {
           className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
         >
           <li>
-            <a>Item 1</a>
+            <a>Customization Yes</a>
           </li>
           <li>
-            <a>Item 2</a>
+            <a>Customization No</a>
           </li>
         </ul>
       </div>
       <div className="grid grid-cols-3 gap-5 place-content-center">
         {filterData?.map((data) => (
+          // console.log(data)
           <MyArtAndCraftListCard key={data._id} data={data} />
         ))}
       </div>

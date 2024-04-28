@@ -3,7 +3,6 @@ import AllArtAndCraftItemTable from "../../Components/AllArtAndCraftItemTable/Al
 
 export default function AllArtAndCraftItem() {
   const loadedAllArtandCraftItem = useLoaderData();
-  console.log(loadedAllArtandCraftItem.length);
   return (
     <div className="flex flex-col items-center justify-center">
       <h2 className="text-3xl">All Art And Craft Item</h2>

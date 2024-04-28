@@ -24,7 +24,6 @@ export default function AddCraftItem() {
       displaName,
       userImage,
     } = data;
-    console.log(data);
     fetch("http://localhost:5000/craftitem", {
       method: "POST",
       headers: {

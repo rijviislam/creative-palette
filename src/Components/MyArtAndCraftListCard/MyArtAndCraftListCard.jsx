@@ -14,7 +14,8 @@ export default function MyArtAndCraftListCard({ data }) {
     subcategory_Name,
     customization,
   } = data;
-  console.log(_id);
+  // console.log(data);
+  // console.log(filterYesorNo);
   const handleDelete = (_id) => {
     Swal.fire({
       title: "Are you sure?",
