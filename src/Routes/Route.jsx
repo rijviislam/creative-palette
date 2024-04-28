@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import ArtAndCraftCategories from "../Components/ArtAndCraftCategories/ArtAndCraftCategories";
+import Canvas from "../Components/Canvas/Canvas";
 import Categories from "../Components/Categories/Categories";
 import Details from "../Components/Details/Details";
 import Home from "../Components/Home/Home";
@@ -58,10 +59,13 @@ export const router = createBrowserRouter([
         element: <MyArtAndCraftList />,
         loader: () => fetch(`http://localhost:5000/craftitem`),
       },
-
       {
         path: "/",
         element: <ArtAndCraftCategories />,
+      },
+      {
+        path: "/",
+        element: <Canvas />,
       },
       {
         path: "/update/:id",

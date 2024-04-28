@@ -5,10 +5,10 @@ export default function ArtCraftCategoryCrad({ item }) {
   return (
     <Link
       to={`/craftitemCategory/:${subcategory_Name}`}
-      className="card w-96 bg-base-100 shadow-xl "
+      className="card w-[400px] h-[450px] bg-base-100 shadow-xl border border-gray-600"
     >
-      <figure>
-        <img src={image} alt="Shoes" />
+      <figure className="h-[350px] w-full">
+        <img src={image} className="h-full w-full object-cover" alt="Shoes" />
       </figure>
       <div className="card-body">
         <h2 className="card-title">{name}</h2>

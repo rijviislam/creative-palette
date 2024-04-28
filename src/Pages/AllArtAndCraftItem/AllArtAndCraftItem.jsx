@@ -5,7 +5,7 @@ export default function AllArtAndCraftItem() {
   const loadedAllArtandCraftItem = useLoaderData();
   return (
     <div className="flex flex-col items-center justify-center">
-      <h2 className="text-3xl">All Art And Craft Item</h2>
+      <h2 className="text-3xl font-semibold">All Art And Craft Item</h2>
       <div className="overflow-x-auto my-10">
         <table className="table">
           <thead>

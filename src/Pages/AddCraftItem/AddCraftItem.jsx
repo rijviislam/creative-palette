@@ -198,7 +198,7 @@ export default function AddCraftItem() {
                 <span className="text-red-500">This field is required</span>
               )}
 
-              <div className="flex gap-10 border border-red-700">
+              <div className="flex flex-col lg:gap-5 ">
                 <div>
                   <div className="flex justify-between mb-2">
                     <label htmlFor="customization" className="text-sm">
