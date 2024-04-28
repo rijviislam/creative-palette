@@ -16,7 +16,6 @@ export default function Update() {
     // customization,
   } = loadData;
 
-  console.log(_id);
   const handleSubmit = (e) => {
     e.preventDefault();
     const image = e.target.image.value;
@@ -33,7 +32,6 @@ export default function Update() {
       rating,
       processing_time,
     };
-    console.log(allData);
     fetch(`http://localhost:5000/craftitemupdate/${_id}`, {
       method: "PUT",
       headers: { "content-type": "application/json" },
@@ -41,7 +39,6 @@ export default function Update() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.modifiedCount > 0) {
           Swal.fire({
             title: "Updated!",

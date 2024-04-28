@@ -33,7 +33,7 @@ export default function Error() {
           Looks like our services are currently offline
         </p>
         <Link
-          to="/home"
+          to="/"
           rel="noopener noreferrer"
           href="#"
           className="px-8 py-3 font-semibold rounded bg-violet-400 dark:bg-violet-600 text-gray-900 dark:text-gray-50"

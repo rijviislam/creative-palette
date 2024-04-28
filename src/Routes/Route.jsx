@@ -1,6 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
 import ArtAndCraftCategories from "../Components/ArtAndCraftCategories/ArtAndCraftCategories";
-import Banner from "../Components/Banner/Banner";
 import Categories from "../Components/Categories/Categories";
 import Details from "../Components/Details/Details";
 import Home from "../Components/Home/Home";
@@ -20,13 +19,9 @@ export const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       {
-        path: "/home",
+        path: "/",
         element: <Home />,
         loader: () => fetch("http://localhost:5000/craftitem"),
-      },
-      {
-        path: "/home",
-        element: <Banner />,
       },
       {
         path: "/details/:id",
@@ -61,7 +56,7 @@ export const router = createBrowserRouter([
         element: <Categories />,
       },
       {
-        path: "/home",
+        path: "/",
         element: <ArtAndCraftCategories />,
       },
       {

@@ -7,7 +7,7 @@ export default function Navbar() {
   const navbar = (
     <>
       <li>
-        <Link to="/home">Home</Link>
+        <Link to="/">Home</Link>
       </li>
       <li>
         <Link to="/allartandcraftitem">All Art & Craft Item</Link>
