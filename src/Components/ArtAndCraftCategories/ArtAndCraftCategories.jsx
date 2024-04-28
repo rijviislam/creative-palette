@@ -10,15 +10,16 @@ export default function ArtAndCraftCategories() {
         setArtandcraft(data);
       });
   }, []);
+  console.log(artandcraft);
   return (
-    <div className="w-full">
-      <h2 className="text-3x">Art And Craft Categories</h2>
+    <div className="w-full flex items-center flex-col justify-center">
+      <h2 className="text-3xl my-5">Art And Craft Categories</h2>
       <div className="grid grid-cols-3 gap-5 place-content-center w-full">
         {artandcraft?.map((card, idx) => (
           <>
             <div
               key={idx}
-              className="card card-compact w-96 bg-base-100 shadow-xl"
+              className="card card-compact w-96 bg-base-100 shadow-xl border-2 border-silver cursor-pointer"
             >
               <figure>
                 <img src={card.image} alt="Shoes" />
@@ -28,6 +29,9 @@ export default function ArtAndCraftCategories() {
                 <p>{card.stockStatus}</p>
                 <p>{card.shortdescription}</p>
                 <p>{card.price}</p>
+                <p className="badge-info inline-flex">
+                  {card.subcategory_Name}
+                </p>
                 <div className="card-actions justify-end">
                   <button className="btn btn-primary">Buy Now</button>
                 </div>

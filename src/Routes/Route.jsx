@@ -1,10 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 import ArtAndCraftCategories from "../Components/ArtAndCraftCategories/ArtAndCraftCategories";
 import Banner from "../Components/Banner/Banner";
+import Categories from "../Components/Categories/Categories";
 import Details from "../Components/Details/Details";
 import Home from "../Components/Home/Home";
 import Login from "../Components/Login/Login";
 import Register from "../Components/Register/Register";
+import Update from "../Components/Update/Update";
 import Root from "../Layout/Root";
 import AddCraftItem from "../Pages/AddCraftItem/AddCraftItem";
 import AllArtAndCraftItem from "../Pages/AllArtAndCraftItem/AllArtAndCraftItem";
@@ -55,8 +57,18 @@ export const router = createBrowserRouter([
         loader: () => fetch(`http://localhost:5000/craftitem`),
       },
       {
+        path: "/category",
+        element: <Categories />,
+      },
+      {
         path: "/home",
         element: <ArtAndCraftCategories />,
+      },
+      {
+        path: "/update/:id",
+        element: <Update />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/craftitem/${params.id}`),
       },
     ],
   },

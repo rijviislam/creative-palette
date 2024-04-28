@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 export default function MyArtAndCraftListCard({ data }) {
@@ -25,12 +26,6 @@ export default function MyArtAndCraftListCard({ data }) {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        // Swal.fire({
-        //   title: "Deleted!",
-        //   text: "Your file has been deleted.",
-        //   icon: "success",
-        // });
-        // console.log("delete confirm");
         fetch(`http://localhost:5000/craftitem/${_id}`, {
           method: "DELETE",
         })
@@ -63,7 +58,9 @@ export default function MyArtAndCraftListCard({ data }) {
           <p>{subcategory_Name}</p>
           <p>{customization}</p>
           <div className="card-actions justify-end">
-            <button className="btn btn-primary">Update</button>
+            <Link to={`/update/${_id}`} className="btn btn-primary">
+              Update
+            </Link>
             <button
               onClick={() => handleDelete(_id)}
               className="btn btn-primary"

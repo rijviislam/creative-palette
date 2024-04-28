@@ -5,17 +5,9 @@ import MyArtAndCraftListCard from "../../Components/MyArtAndCraftListCard/MyArtA
 
 export default function MyArtAndCraftList() {
   const { user } = useContext(AuthContext);
-  const { email } = user;
+  const email = user?.email;
   const load = useLoaderData();
   const filterData = load.filter((item) => item.email === email);
-
-  // useEffect(() => {
-  //   fetch(`http://localhost:5000/craftitem_category`)
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //     });
-  // }, [user]);
   return (
     <div className="flex flex-col items-center">
       <h2 className="text-3xl">My Art And Craft List</h2>
