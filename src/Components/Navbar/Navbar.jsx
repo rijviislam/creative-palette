@@ -1,10 +1,21 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Tooltip } from "react-tooltip";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 export default function Navbar() {
   const { user, logOutUser } = useContext(AuthContext);
+  const [theme, setTheme] = useState(
+    localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
+  );
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+    const localTheme = localStorage.getItem("theme");
+    document.querySelector("html").setAttribute("data-theme", localTheme);
+  }, [theme]);
   const navbar = (
     <>
       <li>
@@ -59,15 +70,13 @@ export default function Navbar() {
       </div>
 
       <div className="navbar-end">
-        <label className="swap swap-rotate mr-5 ">
-          <input
-            type="checkbox"
-            className="theme-controller"
-            value="synthwave"
-          />
+        <label className="swap swap-rotate mr-5">
+          {/* this hidden checkbox controls the state */}
+          <input type="checkbox" onClick={toggleTheme} />
 
+          {/* sun icon */}
           <svg
-            className="swap-off fill-current w-10 h-10"
+            className="swap-on fill-current w-10 h-10"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
           >
@@ -76,7 +85,7 @@ export default function Navbar() {
 
           {/* moon icon */}
           <svg
-            className="swap-on fill-current w-10 h-10"
+            className="swap-off fill-current w-10 h-10"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
           >
