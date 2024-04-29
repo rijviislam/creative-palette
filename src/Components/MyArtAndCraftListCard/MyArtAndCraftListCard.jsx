@@ -45,7 +45,7 @@ export default function MyArtAndCraftListCard({ data }) {
   };
   return (
     <div>
-      <div className="card w-96 bg-base-100 shadow-xl">
+      <div className="card w-96 bg-base-100 shadow-xl border border-silver">
         <figure>
           <img src={image} alt="Shoes" />
         </figure>

@@ -1,4 +1,6 @@
 import {
+  GithubAuthProvider,
+  GoogleAuthProvider,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
@@ -6,7 +8,6 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
-import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth/cordova";
 import { createContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import auth from "../Firebase/firebase.config";

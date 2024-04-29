@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import ArtAndCraftCategories from "../Components/ArtAndCraftCategories/ArtAndCraftCategories";
 import Canvas from "../Components/Canvas/Canvas";
+import Categories from "../Components/Categories/Categories";
 import Details from "../Components/Details/Details";
 import Home from "../Components/Home/Home";
 import Login from "../Components/Login/Login";
@@ -34,12 +35,12 @@ export const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:5000/craftitem/${params.id}`),
       },
-      // {
-      //   path: "/craftitemCategory/:subcategory_Name",
-      //   element: <Categories />,
-      //   loader: ({ params }) =>
-      //     fetch(`http://localhost:5000/craftitem/${params.subcategory_Name}`),
-      // },
+      {
+        path: "/craftitemCategory/:subcategory_Name",
+        element: <Categories />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/craftitem/${params.subcategory_Name}`),
+      },
       {
         path: "/login",
         element: <Login />,
@@ -88,11 +89,6 @@ export const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:5000/craftitem/${params.id}`),
       },
-      // {
-      //   path: "/craftitemCategory/:",
-      //   element: <Categories />,
-      //   loader: () => fetch(`http://localhost:5000/craftitem`),
-      // },
     ],
   },
 ]);
