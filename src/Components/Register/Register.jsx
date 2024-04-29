@@ -1,10 +1,12 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import MySVG from "../../assets/react1.svg";
 export default function Register() {
   const { createUser, updateImageAndName, setReload } = useContext(AuthContext);
+  const [regError, setRegError] = useState("");
   const {
     register,
     handleSubmit,
@@ -13,6 +15,11 @@ export default function Register() {
   } = useForm();
   const onSubmit = (data) => {
     const { name, email, password, image } = data;
+    setRegError("");
+    if (!/^(?=.*[a-z])(?=.*[A-Z]).{6,}$/.test(password)) {
+      alert("Write a strong password!");
+      return;
+    }
     createUser(email, password)
       .then((res) => {
         console.log(res.user);
@@ -39,12 +46,17 @@ export default function Register() {
         reset();
       })
       .catch((error) => {
-        console.error(error);
+        setRegError(error.message);
+        if (regError) {
+          alert("Can't Register with this email!");
+          return;
+        }
       });
   };
   return (
-    <div className="flex w-full items-center justify-center my-10 ">
-      <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-gray-900 dark:bg-gray-50 text-gray-100 dark:text-gray-800">
+    <div className="flex w-full gap-5 items-center justify-center my-10 ">
+      <img src={MySVG} className="w-[50%]" alt="" />
+      <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-[#6C63FF] text-gray-100">
         <h1 className="text-2xl font-bold text-center">Register Now!</h1>
         <form
           onSubmit={handleSubmit(onSubmit)}
@@ -53,10 +65,7 @@ export default function Register() {
           className="space-y-6"
         >
           <div className="space-y-1 text-sm">
-            <label
-              htmlFor="name"
-              className="block text-gray-400 dark:text-gray-600"
-            >
+            <label htmlFor="name" className="block  text-gray-100  ">
               Name
             </label>
             <input
@@ -64,7 +73,7 @@ export default function Register() {
               name="name"
               id="name"
               placeholder="Enter your name"
-              className="w-full px-4 py-3 rounded-md border-gray-700 dark:border-gray-300 bg-gray-900 dark:bg-gray-50 text-gray-100 dark:text-gray-800 focus:border-violet-400 focus:dark:border-violet-600"
+              className="w-full px-4 py-3 rounded-md border-gray-700 dark:border-gray-300 bg-gray-900 dark:bg-gray-50 text-gray-100   focus:border-violet-400 focus:dark:border-violet-600"
               {...register("name", { required: true })}
             />
             {errors.name && (
@@ -72,10 +81,7 @@ export default function Register() {
             )}
           </div>
           <div className="space-y-1 text-sm">
-            <label
-              htmlFor="email"
-              className="block text-gray-400 dark:text-gray-600"
-            >
+            <label htmlFor="email" className="block  text-gray-100  ">
               Email
             </label>
             <input
@@ -83,7 +89,7 @@ export default function Register() {
               name="email"
               id="email"
               placeholder="Enter your email"
-              className="w-full px-4 py-3 rounded-md border-gray-700 dark:border-gray-300 bg-gray-900 dark:bg-gray-50 text-gray-100 dark:text-gray-800 focus:border-violet-400 focus:dark:border-violet-600"
+              className="w-full px-4 py-3 rounded-md border-gray-700 dark:border-gray-300 bg-gray-900 dark:bg-gray-50 text-gray-100   focus:border-violet-400 focus:dark:border-violet-600"
               {...register("email", { required: true })}
             />
             {errors.email && (
@@ -91,10 +97,7 @@ export default function Register() {
             )}
           </div>
           <div className="space-y-1 text-sm">
-            <label
-              htmlFor="imageurl"
-              className="block text-gray-400 dark:text-gray-600"
-            >
+            <label htmlFor="imageurl" className="block  text-gray-100  ">
               Image
             </label>
             <input
@@ -102,15 +105,12 @@ export default function Register() {
               name="imageurl"
               id="imageurl"
               placeholder="Enter a Image URL"
-              className="w-full px-4 py-3 rounded-md border-gray-700 dark:border-gray-300 bg-gray-900 dark:bg-gray-50 text-gray-100 dark:text-gray-800 focus:border-violet-400 focus:dark:border-violet-600"
+              className="w-full px-4 py-3 rounded-md border-gray-700 dark:border-gray-300 bg-gray-900 dark:bg-gray-50 text-gray-100   focus:border-violet-400 focus:dark:border-violet-600"
               {...register("image", { required: true })}
             />
           </div>
           <div className="space-y-1 text-sm">
-            <label
-              htmlFor="password"
-              className="block text-gray-400 dark:text-gray-600"
-            >
+            <label htmlFor="password" className="block  text-gray-100  ">
               Password
             </label>
             <input
@@ -118,20 +118,20 @@ export default function Register() {
               name="password"
               id="password"
               placeholder="Password"
-              className="w-full px-4 py-3 rounded-md border-gray-700 dark:border-gray-300 bg-gray-900 dark:bg-gray-50 text-gray-100 dark:text-gray-800 focus:border-violet-400 focus:dark:border-violet-600"
+              className="w-full px-4 py-3 rounded-md border-gray-700 dark:border-gray-300 bg-gray-900 dark:bg-gray-50 text-gray-100   focus:border-violet-400 focus:dark:border-violet-600"
               {...register("password", { required: true })}
             />
           </div>
           {errors.password && (
             <span className="text-red-500">This field is required</span>
           )}
-          <button className="block w-full p-3 text-center rounded-sm text-gray-900 dark:text-gray-50 bg-violet-400 dark:bg-violet-600">
-            Submit
+          <button className="block w-full p-3 text-center rounded-sm text-gray-900 dark:text-gray-50 bvioletg--400 bg-[#423e68]">
+            Register
           </button>
         </form>
         <div className="flex items-center pt-4 space-x-1">
           <div className="flex-1 h-px sm:w-16 bg-gray-700 dark:bg-gray-300"></div>
-          <p className="px-3 text-sm text-gray-400 dark:text-gray-600">
+          <p className="px-3 text-sm text-gray-40">
             Register with social accounts
           </p>
           <div className="flex-1 h-px sm:w-16 bg-gray-700 dark:bg-gray-300"></div>
@@ -165,13 +165,13 @@ export default function Register() {
             </svg>
           </button>
         </div>
-        <p className="text-xs text-center sm:px-6 text-gray-400 dark:text-gray-600">
+        <p className="text-xs text-center sm:px-6 text-gray-100">
           Have an account?
           <Link
             to="/login"
             rel="noopener noreferrer"
             href="#"
-            className="underline text-gray-100 dark:text-gray-800"
+            className="underline text-gray-100  "
           >
             Login up
           </Link>

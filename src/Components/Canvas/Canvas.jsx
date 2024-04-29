@@ -38,7 +38,7 @@ export default function Canvas() {
                   <strong>Stock Status:</strong> {canva.stock_status}
                 </p>
                 <div className="card-actions justify-end">
-                  <button className="btn btn-primary">Buy Now</button>
+                  <button className="btn btn-primary">View Details</button>
                 </div>
               </div>
             </div>

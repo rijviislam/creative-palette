@@ -1,3 +1,4 @@
+import { FaArrowRightLong } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 export default function CraftItemCard({ craftItem }) {
@@ -26,6 +27,7 @@ export default function CraftItemCard({ craftItem }) {
           className="btn mt-8 bg-teal-700 text-black"
         >
           View Details
+          <FaArrowRightLong />
         </Link>
       </div>
     </div>

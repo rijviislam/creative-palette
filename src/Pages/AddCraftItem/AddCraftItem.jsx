@@ -1,13 +1,15 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 export default function AddCraftItem() {
   const { user } = useContext(AuthContext);
+  const [subcategory_Name, setSubcategory_Name] = useState();
   const email = user.email;
   const displaName = user.displayName;
   const userImage = user.photoURL;
+
   const {
     register,
     handleSubmit,
@@ -58,16 +60,18 @@ export default function AddCraftItem() {
   };
 
   return (
-    <div className="flex items-center justify-center w-full my-5">
-      <div className="flex flex-col w-10/12  p-6 rounded-md sm:p-10 bg-gray-900 dark:bg-gray-50 text-gray-100 dark:text-gray-800">
+    <div className="flex bg-base-100 items-center justify-center w-full my-5">
+      <div className="flex flex-col w-10/12  p-6 rounded-md sm:p-10  text-gray-100 dark:text-gray-800">
         <div className="mb-8 text-center">
-          <h1 className="my-3 text-4xl font-bold">Add your craft item</h1>
+          <h1 className="my-3 text-4xl font-bold dark:text-violet-600">
+            Add your craft item
+          </h1>
         </div>
         <form
           onSubmit={handleSubmit(onSubmit)}
           noValidate=""
           action=""
-          className="space-y-6"
+          className="space-y-6 rounded-lg p-10 bg-slate-300"
         >
           <div className=" flex items-start gap-5">
             <div className="w-1/2">
@@ -107,24 +111,6 @@ export default function AddCraftItem() {
               </div>
               <div>
                 <div className="flex justify-between mb-2">
-                  <label htmlFor="subcategory_Name" className="text-sm">
-                    Subcategory Name
-                  </label>
-                </div>
-                <input
-                  type="subcategory_Name"
-                  name="subcategory_Name"
-                  id="subcategory_Name"
-                  placeholder="subcategory name"
-                  className="w-full px-3 py-2 border rounded-md border-gray-700 dark:border-gray-300 bg-gray-900 dark:bg-gray-50 text-gray-100 dark:text-gray-800"
-                  {...register("subcategory_Name", { required: true })}
-                />
-                {errors.subcategory_Name && (
-                  <span className="text-red-500">This field is required</span>
-                )}
-              </div>
-              <div>
-                <div className="flex justify-between mb-2">
                   <label htmlFor="shortdescription" className="text-sm">
                     Short Description
                   </label>
@@ -158,6 +144,26 @@ export default function AddCraftItem() {
                 {errors.price && (
                   <span className="text-red-500">This field is required</span>
                 )}
+              </div>
+
+              <div className="flex flex-col">
+                <h2 className="text-xl">Subcategory Name</h2>
+                <select
+                  id="fruits"
+                  defaultValue="Select Subcategory"
+                  name="subcategory_Name"
+                  onChange={(e) => setSubcategory_Name(e.target.value)}
+                  {...register("subcategory_Name", { required: true })}
+                >
+                  <option value="Landscape Painting">Landscape Painting</option>
+                  <option value="Portrait Drawing">Portrait Drawing</option>
+                  <option value="Watercolour Painting">
+                    Watercolour Painting
+                  </option>
+                  <option value="Oil Painting">Oil Painting</option>
+                  <option value="Charcoal Sketching">Charcoal Sketching</option>
+                  <option value="Cartoon Drawing">Cartoon Drawing</option>
+                </select>
               </div>
             </div>
             <div className="w-1/2 space-y-2">
@@ -281,6 +287,7 @@ export default function AddCraftItem() {
                     </div>
                   </div>
                 </div>
+
                 <div>
                   <div className="flex gap-8">
                     <div className="flex items-center gap-2">

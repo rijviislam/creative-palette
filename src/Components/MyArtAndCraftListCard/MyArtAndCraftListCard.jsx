@@ -14,6 +14,7 @@ export default function MyArtAndCraftListCard({ data }) {
     subcategory_Name,
     customization,
   } = data;
+  console.log(data);
   const handleDelete = (_id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -53,7 +54,7 @@ export default function MyArtAndCraftListCard({ data }) {
           <p>{processing_time}</p>
           <p>{rating}</p>
           <p>{shortdescription}</p>
-          <p>{stockStatus}</p>
+          <p>Stock Status: {stockStatus}</p>
           <p>{subcategory_Name}</p>
           <p>{customization}</p>
           <div className="card-actions justify-end">

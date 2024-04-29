@@ -12,7 +12,9 @@ export default function ArtCraftCategoryCrad({ item }) {
       </figure>
       <div className="card-body">
         <h2 className="card-title">{name}</h2>
-        <div className="badge badge-secondary">{subcategory_Name}</div>
+        <div className="badge badge-error font-semibold py-3 px-2">
+          {subcategory_Name}{" "}
+        </div>
       </div>
     </Link>
   );

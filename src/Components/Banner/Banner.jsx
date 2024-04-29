@@ -1,35 +1,35 @@
 // Import Swiper React components
-import "swiper/css/autoplay";
-import { Swiper, SwiperSlide } from "swiper/react";
-// Import Swiper styles
 import "swiper/css";
+import "swiper/css/autoplay";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
+import { Swiper, SwiperSlide } from "swiper/react";
+// Import Swiper styles
 
 // import required modules
 import { useRef } from "react";
-// import { Autoplay, EffectFade } from "swiper/modules";
+import { Autoplay, EffectFade } from "swiper/modules";
 
 export default function Banner() {
   const swiperRefLocal = useRef();
-  // const handleMouseEnter = () => {
-  //   swiperRefLocal?.current?.swiper?.autoplay?.stop();
-  // };
-  // const handleMouseLeave = () => {
-  //   swiperRefLocal?.current?.swiper?.autoplay?.start();
-  // };
+  const handleMouseEnter = () => {
+    swiperRefLocal?.current?.swiper?.autoplay?.stop();
+  };
+  const handleMouseLeave = () => {
+    swiperRefLocal?.current?.swiper?.autoplay?.start();
+  };
   return (
     <div
       className="w-full h-[555px]"
-      // onMouseEnter={handleMouseEnter}
-      // onMouseLeave={handleMouseLeave}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <Swiper
         spaceBetween={30}
         effect={"fade"}
-        // modules={[EffectFade, Autoplay]}
+        modules={[EffectFade, Autoplay]}
         ref={swiperRefLocal}
-        autoplay={{ delay: 600 }}
+        autoplay={{ delay: 1000 }}
         className="mySwiper w-full h-full"
       >
         <SwiperSlide>
