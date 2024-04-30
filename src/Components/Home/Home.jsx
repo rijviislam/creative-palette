@@ -1,6 +1,6 @@
 import { useLoaderData } from "react-router-dom";
+import Banner from "../../Components/Banner/Banner";
 import ArtAndCraftCategories from "../ArtAndCraftCategories/ArtAndCraftCategories";
-import Banner from "../Banner/Banner";
 import Canvas from "../Canvas/Canvas";
 import CraftItems from "../CraftItems/CraftItems";
 

@@ -16,7 +16,6 @@ export default function MyArtAndCraftList() {
     });
     setItem(filterUpdate);
   };
-  // setItem(filterData);
   return (
     <div className="flex flex-col items-center min-h-screen">
       <h2 className="text-3xl font-semibold">My Art And Craft List</h2>
@@ -35,7 +34,7 @@ export default function MyArtAndCraftList() {
         </ul>
       </details>
 
-      <div className="grid grid-cols-3 gap-5 place-content-center my-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-5 place-content-center my-10 px-4">
         {filterData?.map((data) => (
           <MyArtAndCraftListCard key={data._id} data={data} />
         ))}

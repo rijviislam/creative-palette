@@ -1,12 +1,9 @@
-// Import Swiper React components
 import "swiper/css";
 import "swiper/css/autoplay";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
-// Import Swiper styles
 
-// import required modules
 import { useRef } from "react";
 import { Autoplay, EffectFade } from "swiper/modules";
 
@@ -20,7 +17,7 @@ export default function Banner() {
   };
   return (
     <div
-      className="w-full h-[555px]"
+      className="lg:w-full md:w-[768px] w-[360px] flex items-center justify-center h-[350px] lg:h-[555px] -z-10"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -30,40 +27,55 @@ export default function Banner() {
         modules={[EffectFade, Autoplay]}
         ref={swiperRefLocal}
         autoplay={{ delay: 1000 }}
-        className="mySwiper w-full h-full"
+        className="mySwiper -z-10  lg:w-full md:w-[768px] w-full lg:h-full h-full"
       >
         <SwiperSlide>
-          <img
-            className="w-full object-contain"
-            src="https://i.ibb.co/FVFGD30/pexels-ian-panelo-7036446.jpg"
-          />
+          <div className="flex w-[360px] md:w-[768px] h-[350px] lg:w-full lg:h-[555px]">
+            <img
+              className="cursor- w-full h-full lg:w-full lg:h-full -z-10 object-cover border border-red-50"
+              src="https://i.ibb.co/FVFGD30/pexels-ian-panelo-7036446.jpg"
+            />
+          </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img className="w-full" src="https://i.ibb.co/wNzb8Qz/portrait.jpg" />
+          <div className="flex w-[360px] md:w-[768px] h-[350px] lg:w-full lg:h-[555px] ">
+            <img
+              className="cursor- w-full h-full lg:w-full lg:h-full -z-10 object-cover"
+              src="https://i.ibb.co/wNzb8Qz/portrait.jpg"
+            />
+          </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img
-            className="w-full object-contain"
-            src="https://i.ibb.co/WpkLKHy/oil.jpg"
-          />
+          <div className="flex w-[360px] md:w-[768px] h-[350px] lg:w-full lg:h-[555px] ">
+            <img
+              className="cursor- w-full h-full lg:w-full lg:h-full -z-10 object-cover"
+              src="https://i.ibb.co/WpkLKHy/oil.jpg"
+            />
+          </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img
-            className="w-full object-contain"
-            src="https://i.ibb.co/ZzK8h8h/16516.jpg"
-          />
+          <div className="flex w-[360px] md:w-[768px] h-[350px] lg:w-full lg:h-[555px] ">
+            <img
+              className="cursor- w-full h-full lg:w-full lg:h-full -z-10 object-cover"
+              src="https://i.ibb.co/ZzK8h8h/16516.jpg"
+            />
+          </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img
-            className="w-full object-contain"
-            src="https://i.ibb.co/0Fjcgww/h26090.jpg"
-          />
+          <div className="flex w-[360px] md:w-[768px] h-[350px] lg:w-full lg:h-[555px] ">
+            <img
+              className="cursor- w-full h-full lg:w-full lg:h-full -z-10 object-cover"
+              src="https://i.ibb.co/0Fjcgww/h26090.jpg"
+            />
+          </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img
-            className="w-full object-contain"
-            src="https://i.ibb.co/Hpqq24R/blob.jpg"
-          />
+          <div className="flex w-[360px] md:w-[768px] h-[350px] lg:w-full lg:h-[555px] ">
+            <img
+              className="cursor- w-full h-full lg:w-full lg:h-full -z-10 object-cover"
+              src="https://i.ibb.co/Hpqq24R/blob.jpg"
+            />
+          </div>
         </SwiperSlide>
       </Swiper>
     </div>

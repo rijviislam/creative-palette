@@ -60,9 +60,9 @@ export default function AddCraftItem() {
   };
 
   return (
-    <div className="flex bg-base-100 items-center justify-center w-full my-5">
-      <div className="flex flex-col w-10/12  p-6 rounded-md sm:p-10  text-gray-100 dark:text-gray-800">
-        <div className="mb-8 text-center">
+    <div className="flex bg-base-100 items-center justify-center lg:w-full my-5">
+      <div className="flex flex-col items-center lg:w-10/12  p-6 rounded-md sm:p-10  text-gray-100 dark:text-gray-800 w-[360px]">
+        <div className="mb-8 text-center w-full">
           <h1 className="my-3 text-4xl font-bold dark:text-violet-600">
             Add your craft item
           </h1>
@@ -71,7 +71,7 @@ export default function AddCraftItem() {
           onSubmit={handleSubmit(onSubmit)}
           noValidate=""
           action=""
-          className="space-y-6 rounded-lg p-10 bg-slate-300"
+          className="space-y-6 rounded-lg p-5 lg:p-10 bg-slate-300 lg:w-[800px]  md:w-[600px] w-[360px]"
         >
           <div className=" flex items-start gap-5">
             <div className="w-1/2">
@@ -147,11 +147,12 @@ export default function AddCraftItem() {
               </div>
 
               <div className="flex flex-col">
-                <h2 className="text-xl">Subcategory Name</h2>
+                <h2 className="text-sm">Subcategory Name</h2>
                 <select
                   id="fruits"
                   defaultValue="Select Subcategory"
                   name="subcategory_Name"
+                  className="bg-white p-2 outline-none rounded-md text-gray-500"
                   onChange={(e) => setSubcategory_Name(e.target.value)}
                   {...register("subcategory_Name", { required: true })}
                 >
@@ -211,7 +212,7 @@ export default function AddCraftItem() {
                       customization
                     </label>
                   </div>
-                  <div className="flex gap-8">
+                  <div className="flex gap-3 lg:gap-8 flex-col lg:flex-row md:flex-row">
                     <div className="flex items-center gap-2">
                       <label
                         htmlFor="customization"
@@ -224,7 +225,7 @@ export default function AddCraftItem() {
                         type="radio"
                         value="Yes"
                         name="radio-1"
-                        className="radio radio-success"
+                        className="radio radio-primary"
                         {...register("customization")}
                       />
                     </div>
@@ -240,7 +241,7 @@ export default function AddCraftItem() {
                         type="radio"
                         value="No"
                         name="radio-1"
-                        className="radio radio-success"
+                        className="radio radio-primary"
                         {...register("customization")}
                       />
                     </div>
@@ -252,7 +253,7 @@ export default function AddCraftItem() {
                       Stock Status
                     </label>
                   </div>
-                  <div className="flex gap-8">
+                  <div className="flex gap-3 lg:gap-8 flex-col lg:flex-row md:flex-row">
                     <div className="flex items-center gap-2">
                       <label
                         htmlFor="stockStatus"
@@ -265,7 +266,7 @@ export default function AddCraftItem() {
                         type="radio"
                         value="in stock"
                         name="radio-1"
-                        className="radio radio-success"
+                        className="radio radio-primary"
                         {...register("stockStatus")}
                       />
                     </div>
@@ -281,7 +282,7 @@ export default function AddCraftItem() {
                         type="radio"
                         value="made to order"
                         name="radio-1"
-                        className="radio radio-success"
+                        className="radio radio-primary"
                         {...register("stockStatus")}
                       />
                     </div>

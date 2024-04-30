@@ -6,12 +6,11 @@ export default function AllArtAndCraftItem() {
   return (
     <div className="flex flex-col items-center justify-center">
       <h2 className="text-3xl font-semibold">All Art And Craft Item</h2>
-      <div className="overflow-x-auto my-10">
-        <table className="table">
+      <div className="overflow-x-auto my-10 w-[350px]">
+        <table>
           <thead>
             <tr>
               <th>User Name</th>
-              <th>Product</th>
               <th>Category</th>
               <th>See Details</th>
             </tr>

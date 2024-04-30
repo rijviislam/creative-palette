@@ -67,14 +67,14 @@ export default function Navbar() {
         <Link to="/">
           <img src={MyLogo} className="w-10 h-10 rounded-full mr-3" alt="" />
         </Link>
-        <a className="font-bold text-xl">Creative Palette</a>
+        <a className="font-bold text-sm lg:text-xl ml-1">Creative Palette</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navbar}</ul>
       </div>
 
       <div className="navbar-end">
-        <label className="cursor-pointer grid place-items-center mr-5">
+        <label className="cursor-pointer grid place-items-center mr-1 lg:mr-5">
           <input
             type="checkbox"
             onClick={toggleTheme}
@@ -112,7 +112,7 @@ export default function Navbar() {
           </svg>
         </label>
         {!user ? (
-          <div className="flex gap-3">
+          <div className="flex gap-1 lg:gap-3">
             <Link to="/login">
               <button className="btn btn-sm text-white  btn-primary">
                 Login
@@ -125,7 +125,7 @@ export default function Navbar() {
             </Link>
           </div>
         ) : (
-          <div className="flex gap-5 items-center justify-center">
+          <div className="flex gap-1 lg:gap-5 items-center justify-center">
             <div className="w-10 h-10  overflow-hidden rounded-full">
               <img
                 data-tooltip-id="my-tooltip"

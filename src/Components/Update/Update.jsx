@@ -1,21 +1,24 @@
+import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import { register } from "swiper/element";
 
 export default function Update() {
   const loadData = useLoaderData();
+  const [subcategoryName, setSubcategory_Name] = useState();
   const {
     _id,
     image,
-    name,
     price,
+    name,
     processing_time,
     rating,
     shortdescription,
-    // stockStatus,
+    stockStatus,
     subcategory_Name,
-    // customization,
+    customization,
   } = loadData;
-
+  console.log(loadData);
   const handleSubmit = (e) => {
     e.preventDefault();
     const image = e.target.image.value;
@@ -24,13 +27,19 @@ export default function Update() {
     const price = e.target.price.value;
     const rating = e.target.rating.value;
     const processing_time = e.target.processing_time.value;
+    const customization = e.target.radio1.value;
+    const stockStatus = e.target.radio2.value;
+    const name = e.target.name.value;
     const allData = {
       image,
+      name,
       shortdescription,
       subcategory_Name,
       price,
       rating,
       processing_time,
+      stockStatus,
+      customization,
     };
     fetch(`http://localhost:5000/craftitemupdate/${_id}`, {
       method: "PUT",
@@ -39,6 +48,7 @@ export default function Update() {
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
         if (data.modifiedCount > 0) {
           Swal.fire({
             title: "Updated!",
@@ -53,14 +63,6 @@ export default function Update() {
     <div>
       <div className="hero min-h-screen bg-base-200 my-5">
         <div className="flex lg:flex-row-reverse">
-          <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold">Login now!</h1>
-            <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
-            </p>
-          </div>
           <div className="card shrink-0 w-full max-w-screen-md shadow-2xl bg-base-100">
             <form onSubmit={handleSubmit} className="card-body">
               <div className="flex gap-5 w-full">
@@ -70,19 +72,13 @@ export default function Update() {
                   </label>
                   <input
                     type="text"
-                    name="itemname"
-                    placeholder="Item name"
+                    name="name"
+                    placeholder="Item Name"
                     className="input input-bordered"
                     defaultValue={name}
-                    // {...register("itemname", { required: true })}
+                    {...register("name", { required: true })}
                   />
-                  {/* {errors.itemname && (
-                    <span className="text-red-500">This field is required</span>
-                  )} */}
                 </div>
-                {/* {errors.processingTime && (
-                  <span className="text-red-500">This field is required</span>
-                )} */}
                 <div className="form-control w-1/2">
                   <label className="label">
                     <span className="label-text">Image URL</span>
@@ -93,11 +89,8 @@ export default function Update() {
                     placeholder="Image URL"
                     className="input input-bordered"
                     defaultValue={image}
-                    // {...register("imageurl", { required: true })}
+                    {...register("image", { required: true })}
                   />
-                  {/* {errors.imageurl && (
-                    <span className="text-red-500">This field is required</span>
-                  )} */}
                 </div>
               </div>
               <div className="flex gap-5 w-full">
@@ -111,27 +104,8 @@ export default function Update() {
                     placeholder="Short Description"
                     className="input input-bordered"
                     defaultValue={shortdescription}
-                    // {...register("itemname", { required: true })}
+                    {...register("itemname", { required: true })}
                   />
-                  {/* {errors.itemname && (
-                    <span className="text-red-500">This field is required</span>
-                  )} */}
-                </div>
-                <div className="form-control w-1/2">
-                  <label className="label">
-                    <span className="label-text"> Subcategory Name</span>
-                  </label>
-                  <input
-                    type="text"
-                    name="subcategory_Name"
-                    placeholder="Subcategory Name"
-                    className="input input-bordered"
-                    defaultValue={subcategory_Name}
-                    // {...register("subcategoryName", { required: true })}
-                  />
-                  {/* {errors.subcategoryName && (
-                    <span className="text-red-500">This field is required</span>
-                  )} */}
                 </div>
               </div>
               <div className="flex gap-5 w-full">
@@ -145,11 +119,8 @@ export default function Update() {
                     placeholder="Price"
                     className="input input-bordered"
                     defaultValue={price}
-                    // {...register("price", { required: true })}
+                    {...register("price", { required: true })}
                   />
-                  {/* {errors.price && (
-                    <span className="text-red-500">This field is required</span>
-                  )} */}
                 </div>
                 <div className="form-control w-1/2">
                   <label className="label">
@@ -161,11 +132,8 @@ export default function Update() {
                     placeholder="Rating"
                     className="input input-bordered"
                     defaultValue={rating}
-                    // {...register("rating", { required: true })}
+                    {...register("rating", { required: true })}
                   />
-                  {/* {errors.rating && (
-                    <span className="text-red-500">This field is required</span>
-                  )} */}
                 </div>
               </div>
               <div className="flex w-full gap-10">
@@ -179,11 +147,119 @@ export default function Update() {
                     placeholder="Processing Time"
                     className="input input-bordered"
                     defaultValue={processing_time}
-                    //   {...register("processingTime", { required: true })}
+                    {...register("processingTime", { required: true })}
                   />
                   {/* {errors.processingTime && (
                   <span className="text-red-500">This field is required</span>
                 )} */}
+                </div>
+                <div className="flex flex-col w1/2">
+                  <h2 className="text-sm">Subcategory Name</h2>
+                  <select
+                    id="fruits"
+                    defaultValue="Select Subcategory"
+                    name="subcategory_Name"
+                    className="bg-white p-2 outline-none rounded-md text-gray-500"
+                    onChange={(e) => setSubcategory_Name(e.target.value)}
+                    {...register("subcategory_Name", { required: true })}
+                  >
+                    <option value="Landscape Painting">
+                      Landscape Painting
+                    </option>
+                    <option value="Portrait Drawing">Portrait Drawing</option>
+                    <option value="Watercolour Painting">
+                      Watercolour Painting
+                    </option>
+                    <option value="Oil Painting">Oil Painting</option>
+                    <option value="Charcoal Sketching">
+                      Charcoal Sketching
+                    </option>
+                    <option value="Cartoon Drawing">Cartoon Drawing</option>
+                  </select>
+                </div>
+              </div>
+              <div className="flex w-full lg:gap-10">
+                <div>
+                  <div className="flex justify-between mb-2">
+                    <label htmlFor="customization" className="text-sm">
+                      customization
+                    </label>
+                  </div>
+                  <div className="flex gap-3 lg:gap-8 flex-col lg:flex-row md:flex-row">
+                    <div className="flex items-center gap-2">
+                      <label
+                        htmlFor="customization"
+                        className="text-sm font-semibold"
+                      >
+                        Yes
+                      </label>
+                      <input
+                        id="Yes"
+                        type="radio"
+                        value="Yes"
+                        name="radio1"
+                        className="radio radio-primary"
+                        {...register("customization")}
+                      />
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <label
+                        htmlFor="customization"
+                        className="text-sm font-semibold"
+                      >
+                        No
+                      </label>
+                      <input
+                        id="No"
+                        type="radio"
+                        value="No"
+                        name="radio1"
+                        className="radio radio-primary"
+                        {...register("customization")}
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div className="flex justify-between mb-2">
+                    <label htmlFor="stockStatus" className="text-sm">
+                      Stock Status
+                    </label>
+                  </div>
+                  <div className="flex gap-3 lg:gap-8 flex-col lg:flex-row md:flex-row">
+                    <div className="flex items-center gap-2">
+                      <label
+                        htmlFor="stockStatus"
+                        className="text-sm font-semibold"
+                      >
+                        In Stock
+                      </label>
+                      <input
+                        id="in_stock"
+                        type="radio"
+                        value="in stock"
+                        name="radio2"
+                        className="radio radio-primary"
+                        {...register("stockStatus")}
+                      />
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <label
+                        htmlFor="stockStatus"
+                        className="text-sm font-semibold"
+                      >
+                        Made to Order
+                      </label>
+                      <input
+                        id="made_to_order"
+                        type="radio"
+                        value="made to order"
+                        name="radio2"
+                        className="radio radio-primary"
+                        {...register("stockStatus")}
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
 

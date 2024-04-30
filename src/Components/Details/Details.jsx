@@ -14,14 +14,16 @@ export default function Details() {
   } = loadedDetails;
   return (
     <div className="hero min-h-[600px] ">
-      <div className="hero-content lg:gap-20 flex-col lg:flex-row-reverse ">
+      <div className="hero-content items-center justify-center lg:gap-20 flex-col lg:flex-row-reverse w-[360px] md:w-[500px] lg:w-3/6 ">
         <img
           src={image}
-          className="h-[450px] w-[500px] rounded-lg shadow-2xl"
+          className="lg:h-[450px] lg:w-[500px] md:w-full w-full h-[300px] rounded-lg shadow-2xl"
         />
-        <div>
+        <div className="w-[360px] lg:w-full md:w-[500px] p-3">
           <h1 className="text-5xl font-bold">{name}</h1>
-          <p className="py-6">{shortdescription}</p>
+          <p className="py-6 lg:w-[500px] w-[360px] md:w-full">
+            {shortdescription}
+          </p>
           <div className="flex flex-col space-y-3">
             <p>
               <strong>Sub Category Name:</strong> {subcategory_Name}

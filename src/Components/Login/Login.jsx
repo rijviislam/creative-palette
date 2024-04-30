@@ -50,10 +50,14 @@ export default function Login() {
     }
   }, [user]);
   return (
-    <div className="flex w-full items-center justify-center my-10">
-      <div className="w-[1000px] flex ">
-        <img className="w-1/2 h-[500px] rounded-l-lg" src={LoginImage} alt="" />
-        <div className="w-1/2 rounded-r-lg max-w-md h-[500px] bg-slate-300 p-8 space-y-3 text-gray-100">
+    <div className="flex w-full items-center justify-center my-10 md:px-5">
+      <div className="w-[1000px] flex flex-col lg:flex-row md:flex-row flex-col-reverse px-5">
+        <img
+          className="lg:w-1/2 h-[300px] w-[360px] md:h-[300px] lg:h-[500px] lg:rounded-l-lg rounded-b-xl"
+          src={LoginImage}
+          alt=""
+        />
+        <div className="lg:w-1/2 lg:rounded-r-lg max-w-md h-[500px] bg-slate-300 p-8 space-y-3  text-black rounded-t-xl">
           <h1 className="text-2xl font-bold text-center text-violet-600">
             Login Now!
           </h1>
@@ -75,7 +79,7 @@ export default function Login() {
                 name="email"
                 id="email"
                 placeholder="Enter your email"
-                className="w-full px-4 py-3 rounded-md border-gray-700 dark:border-gray-300 bg-gray-900 dark:bg-gray-50 text-gray-100 dark:text-gray-800 focus:border-violet-400 focus:dark:border-violet-600"
+                className="w-full px-4 py-3 rounded-md border-gray-700 dark:border-gray-300 bg-gray-900 dark:bg-gray-50  text-black dark:text-gray-800 focus:border-violet-400 focus:dark:border-violet-600"
                 {...register("email", { required: true })}
               />
               {errors.email && (
@@ -95,7 +99,7 @@ export default function Login() {
                 name="password"
                 id="password"
                 placeholder="Password"
-                className="w-full px-4 py-3 rounded-md border-gray-700 dark:border-gray-300 bg-gray-900 dark:bg-gray-50 text-gray-100 dark:text-gray-800 focus:border-violet-400 focus:dark:border-violet-600"
+                className="w-full px-4 py-3 rounded-md border-gray-700 dark:border-gray-300 bg-gray-900 dark:bg-gray-50  text-black dark:text-gray-800 focus:border-violet-400 focus:dark:border-violet-600"
                 {...register("password", { required: true })}
               />
             </div>
@@ -120,7 +124,7 @@ export default function Login() {
               to="/register"
               rel="noopener noreferrer"
               href="#"
-              className="underline text-gray-100 dark:text-gray-800"
+              className="underline  text-black dark:text-gray-800"
             >
               Sign up
             </Link>

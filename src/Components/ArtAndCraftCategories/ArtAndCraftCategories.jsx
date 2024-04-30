@@ -14,7 +14,7 @@ export default function ArtAndCraftCategories() {
   return (
     <div className="flex flex-col items-center">
       <h2 className="text-3xl my-5 font-semibold">Art And Craft Categories</h2>
-      <div className="grid grid-cols-3 gap-5 place-items-center">
+      <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 place-items-center px-4">
         {artandcraft?.map((item) => (
           <ArtCraftCategoryCrad key={item._id} item={item} />
         ))}

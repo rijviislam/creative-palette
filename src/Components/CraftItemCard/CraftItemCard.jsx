@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function CraftItemCard({ craftItem }) {
   const { _id, image, name, price, stockStatus, subcategory_Name } = craftItem;
   return (
-    <div className="card w-[400px] h-[450px] bg-base-100 shadow-xl border border-gray-600">
+    <div className="card  lg:w-[400px] lg:h-[450px] md:h-[450px] bg-base-100 shadow-xl border border-gray-600">
       <figure className="w-full h-[250px]">
         <img src={image} className="w-full h-full object-cover" />
       </figure>
@@ -15,7 +15,7 @@ export default function CraftItemCard({ craftItem }) {
             {subcategory_Name}
           </div>
         </h2>
-        <div className="card-actions justify-end">
+        <div className="card-actions flex flex-col  border-red-700">
           <p>
             <strong className="">Price: </strong>
             {price}
