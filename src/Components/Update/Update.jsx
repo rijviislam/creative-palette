@@ -40,11 +40,14 @@ export default function Update() {
       stockStatus,
       customization,
     };
-    fetch(`http://localhost:5000/craftitemupdate/${_id}`, {
-      method: "PUT",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(allData),
-    })
+    fetch(
+      `https://ph-assignment-10-arts-and-craft-server-3ukep3ro2.vercel.app/craftitemupdate/${_id}`,
+      {
+        method: "PUT",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(allData),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

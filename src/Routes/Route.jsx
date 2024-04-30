@@ -23,7 +23,10 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch("http://localhost:5000/craftitem"),
+        loader: () =>
+          fetch(
+            "https://ph-assignment-10-arts-and-craft-server.vercel.app/craftitem"
+          ),
       },
       {
         path: "/details/:id",
@@ -33,13 +36,17 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/craftitem/${params.id}`),
+          fetch(
+            `https://ph-assignment-10-arts-and-craft-server.vercel.app/craftitem/${params.id}`
+          ),
       },
       {
         path: "/craftitemCategory/:subcategory_Name",
         element: <Categories />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/craftitem/${params.subcategory_Name}`),
+          fetch(
+            `https://ph-assignment-10-arts-and-craft-server.vercel.app/craftitem/${params.subcategory_Name}`
+          ),
       },
       {
         path: "/login",
@@ -52,7 +59,10 @@ export const router = createBrowserRouter([
       {
         path: "/allartandcraftitem",
         element: <AllArtAndCraftItem />,
-        loader: () => fetch("http://localhost:5000/craftitem"),
+        loader: () =>
+          fetch(
+            "https://ph-assignment-10-arts-and-craft-server.vercel.app/craftitem"
+          ),
       },
       {
         path: "/addcraftitem",
@@ -69,7 +79,10 @@ export const router = createBrowserRouter([
             <MyArtAndCraftList />
           </PrivateRoute>
         ),
-        loader: () => fetch(`http://localhost:5000/craftitem`),
+        loader: () =>
+          fetch(
+            `https://ph-assignment-10-arts-and-craft-server.vercel.app/craftitem`
+          ),
       },
       {
         path: "/",
@@ -87,7 +100,9 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/craftitem/${params.id}`),
+          fetch(
+            `https://ph-assignment-10-arts-and-craft-server.vercel.app/craftitem/${params.id}`
+          ),
       },
     ],
   },

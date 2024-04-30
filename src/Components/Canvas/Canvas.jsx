@@ -3,7 +3,9 @@ import { useEffect, useState } from "react";
 export default function Canvas() {
   const [canvas, setCanvas] = useState();
   useEffect(() => {
-    fetch("http://localhost:5000/canvas")
+    fetch(
+      "https://ph-assignment-10-arts-and-craft-server-3ukep3ro2.vercel.app/canvas"
+    )
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);

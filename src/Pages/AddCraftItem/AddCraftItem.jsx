@@ -26,13 +26,16 @@ export default function AddCraftItem() {
       displaName,
       userImage,
     } = data;
-    fetch("http://localhost:5000/craftitem", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
+    fetch(
+      "https://ph-assignment-10-arts-and-craft-server-3ukep3ro2.vercel.app/craftitem",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

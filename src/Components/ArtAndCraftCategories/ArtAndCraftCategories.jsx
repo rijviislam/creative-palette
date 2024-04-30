@@ -5,7 +5,9 @@ export default function ArtAndCraftCategories() {
   // const load = useLoaderData();
   const [artandcraft, setArtandcraft] = useState();
   useEffect(() => {
-    fetch("http://localhost:5000/artandcraft")
+    fetch(
+      "https://ph-assignment-10-arts-and-craft-server-3ukep3ro2.vercel.app/artandcraft"
+    )
       .then((res) => res.json())
       .then((data) => {
         setArtandcraft(data);

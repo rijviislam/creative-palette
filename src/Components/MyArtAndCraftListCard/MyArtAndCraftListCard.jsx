@@ -30,9 +30,12 @@ export default function MyArtAndCraftListCard({
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/craftitem/${_id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://ph-assignment-10-arts-and-craft-server-3ukep3ro2.vercel.app/craftitem/${_id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
