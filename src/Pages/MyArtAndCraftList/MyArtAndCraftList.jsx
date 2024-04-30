@@ -9,6 +9,7 @@ export default function MyArtAndCraftList() {
   const load = useLoaderData();
   const [item, setItem] = useState(load);
   const filterData = item.filter((item) => item.email === email);
+  const [finalData, setFinalData] = useState(load);
 
   const filterItems = (category) => {
     const filterUpdate = filterData.filter((fItem) => {
@@ -16,6 +17,8 @@ export default function MyArtAndCraftList() {
     });
     setItem(filterUpdate);
   };
+  // console.log(item);
+  console.log(finalData);
   return (
     <div className="flex flex-col items-center min-h-screen">
       <h2 className="text-3xl font-semibold">My Art And Craft List</h2>
@@ -36,7 +39,12 @@ export default function MyArtAndCraftList() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-5 place-content-center my-10 px-4">
         {filterData?.map((data) => (
-          <MyArtAndCraftListCard key={data._id} data={data} />
+          <MyArtAndCraftListCard
+            key={data._id}
+            data={data}
+            finalData={finalData}
+            setFinalData={setFinalData}
+          />
         ))}
       </div>
     </div>

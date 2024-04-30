@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-export default function MyArtAndCraftListCard({ data }) {
+export default function MyArtAndCraftListCard({
+  data,
+  setFinalData,
+  finalData,
+}) {
   const {
     _id,
     image,
@@ -39,6 +43,10 @@ export default function MyArtAndCraftListCard({ data }) {
                 text: "Your Product has been deleted.",
                 icon: "success",
               });
+              const remaining = finalData.filter(
+                (afterDelete) => afterDelete._id !== _id
+              );
+              setFinalData(remaining);
             }
           });
       }
