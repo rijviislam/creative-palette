@@ -3,6 +3,7 @@ import ArtAndCraftCategories from "../ArtAndCraftCategories/ArtAndCraftCategorie
 import Banner from "../Banner/Banner";
 import Canvas from "../Canvas/Canvas";
 import CraftItems from "../CraftItems/CraftItems";
+import Testimonial from "../Testimonial/Testimonial";
 
 export default function Home() {
   const loadedCraft = useLoaderData();
@@ -12,6 +13,7 @@ export default function Home() {
       <CraftItems loadedCraft={loadedCraft} />
       <ArtAndCraftCategories loadedCraft={loadedCraft} />
       <Canvas />
+      <Testimonial />
     </div>
   );
 }
