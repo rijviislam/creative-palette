@@ -18,6 +18,7 @@ export default function MyArtAndCraftListCard({
     subcategory_Name,
     customization,
   } = data;
+  console.log(finalData);
   console.log(data);
   const handleDelete = (_id) => {
     console.log(_id);
@@ -36,16 +37,13 @@ export default function MyArtAndCraftListCard({
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
             if (data.deletedCount > 0) {
               Swal.fire({
                 title: "Deleted!",
                 text: "Your Product has been deleted.",
                 icon: "success",
               });
-              const remaining = finalData.filter(
-                (afterDelete) => afterDelete._id !== _id
-              );
+              const remaining = finalData.filter((data) => data._id !== _id);
               setFinalData(remaining);
             }
           });

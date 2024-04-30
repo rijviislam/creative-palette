@@ -7,9 +7,9 @@ export default function MyArtAndCraftList() {
   const { user } = useContext(AuthContext);
   const email = user?.email;
   const load = useLoaderData();
+  const [finalData, setFinalData] = useState(load);
   const [item, setItem] = useState(load);
   const filterData = item.filter((item) => item.email === email);
-  const [finalData, setFinalData] = useState(load);
 
   const filterItems = (category) => {
     const filterUpdate = filterData.filter((fItem) => {
