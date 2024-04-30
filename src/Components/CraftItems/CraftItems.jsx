@@ -1,6 +1,16 @@
+import { useContext } from "react";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 import CraftItemCard from "../CraftItemCard/CraftItemCard";
 
 export default function CraftItems({ loadedCraft }) {
+  const { loader } = useContext(AuthContext);
+  if (loader) {
+    return (
+      <div className="w-full h-full flex items-center justify-center">
+        <span className="loading loading-spinner text-info loading-lg"></span>
+      </div>
+    );
+  }
   return (
     <div className="flex flex-col items-center">
       <h2 className="text-4xl font-bold my-5">Craft Item</h2>
