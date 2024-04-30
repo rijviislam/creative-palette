@@ -18,7 +18,6 @@ export default function Update() {
     subcategory_Name,
     customization,
   } = loadData;
-  console.log(loadData);
   const handleSubmit = (e) => {
     e.preventDefault();
     const image = e.target.image.value;

@@ -14,10 +14,10 @@ export default function Canvas() {
     <div className="flex flex-col items-center mb-5">
       <hh2 className="text-3xl font-semibold my-10">Canvas</hh2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full place-items-center px-4  gap-3">
-        {canvas?.map((canva) => (
+        {canvas?.map((canva, idx) => (
           <>
             <div
-              key={canva._id}
+              key={idx}
               className="card  lg:w-[400px] md:h-[500px] lg:h-[450px] bg-base-100 shadow-xl border border-gray-600"
             >
               <figure>

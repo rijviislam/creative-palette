@@ -1,11 +1,11 @@
+import { useRef } from "react";
+import { Slide } from "react-awesome-reveal";
 import "swiper/css";
 import "swiper/css/autoplay";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
-import { Swiper, SwiperSlide } from "swiper/react";
-
-import { useRef } from "react";
 import { Autoplay, EffectFade } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 export default function Banner() {
   const swiperRefLocal = useRef();
@@ -49,16 +49,18 @@ export default function Banner() {
         </SwiperSlide>
         <SwiperSlide>
           <div className="flex w-[360px] md:w-[768px] items-center justify-start h-[350px] lg:w-full lg:h-[555px] relative">
-            <div className="absolute flex backdrop-blur-sm bg-white/30 flex-col w-[360px] lg:w-[500px] lg:ml-10 p-5 rounded-md">
-              <h2 className=" text-3xl text-black font-medium">
-                Abstract Oil Painting
-              </h2>
-              <p className="text-slate-800">
-                Abstract oil painting explores form, color, and emotion through
-                non-representational compositions, inviting viewers to interpret
-                subjective meanings and connections.
-              </p>
-            </div>
+            <Slide>
+              <div className="absolute flex backdrop-blur-sm bg-white/30 flex-col w-[360px] lg:w-[500px] lg:ml-10 p-5 rounded-md">
+                <h2 className=" text-3xl text-black font-medium">
+                  Abstract Oil Painting
+                </h2>
+                <p className="text-slate-800">
+                  Abstract oil painting explores form, color, and emotion
+                  through non-representational compositions, inviting viewers to
+                  interpret subjective meanings and connections.
+                </p>
+              </div>
+            </Slide>
             <img
               className="cursor- w-full h-full lg:w-full lg:h-full -z-10 object-cover"
               src="https://i.ibb.co/hBfRpdZ/pexels-steve-1070534.jpg"
@@ -67,16 +69,18 @@ export default function Banner() {
         </SwiperSlide>
         <SwiperSlide>
           <div className="flex w-[360px] md:w-[768px] items-center justify-start h-[350px] lg:w-full lg:h-[555px] relative">
-            <div className="absolute flex backdrop-blur-sm bg-white/30 flex-col w-[360px] lg:w-[500px] lg:ml-10 p-5 rounded-md">
-              <h2 className=" text-3xl text-black font-medium">
-                Floral Watercolor Art
-              </h2>
-              <p className="text-slate-800">
-                Floral watercolor art: delicate blooms painted with translucent
-                watercolors, capturing the beauty and ephemeral essence of
-                flowers in vivid hues.
-              </p>
-            </div>
+            <Slide>
+              <div className="absolute flex backdrop-blur-sm bg-white/30 flex-col w-[360px] lg:w-[500px] lg:ml-10 p-5 rounded-md">
+                <h2 className=" text-3xl text-black font-medium">
+                  Floral Watercolor Art
+                </h2>
+                <p className="text-slate-800">
+                  Floral watercolor art: delicate blooms painted with
+                  translucent watercolors, capturing the beauty and ephemeral
+                  essence of flowers in vivid hues.
+                </p>
+              </div>
+            </Slide>
             <img
               className="cursor- w-full h-full lg:w-full lg:h-full -z-10 object-cover"
               src="https://i.ibb.co/D1zXxXP/97f681ed80d517ba5a97eda8c13f4366.jpg"
@@ -85,16 +89,19 @@ export default function Banner() {
         </SwiperSlide>
         <SwiperSlide>
           <div className="flex w-[360px] md:w-[768px] items-center justify-start h-[350px] lg:w-full lg:h-[555px] relative">
-            <div className="absolute flex backdrop-blur-sm bg-white/30 flex-col w-[360px] lg:w-[500px] lg:ml-10 p-5 rounded-md">
-              <h2 className=" text-3xl text-black font-medium">
-                Mountain view canvas
-              </h2>
-              <p className="text-slate-800">
-                Mountain View Canvas offers durable canvas products for outdoor
-                use, including tents, tarps, and covers, crafted with quality
-                materials and craftsmanship.
-              </p>
-            </div>
+            <Slide>
+              <div className="absolute flex backdrop-blur-sm bg-white/30 flex-col w-[360px] lg:w-[500px] lg:ml-10 p-5 rounded-md">
+                <h2 className=" text-3xl text-black font-medium">
+                  Mountain view canvas
+                </h2>
+                <p className="text-slate-800">
+                  Mountain View Canvas offers durable canvas products for
+                  outdoor use, including tents, tarps, and covers, crafted with
+                  quality materials and craftsmanship.
+                </p>
+              </div>
+            </Slide>
+
             <img
               className="cursor- w-full h-full lg:w-full lg:h-full -z-10 object-cover"
               src="https://i.ibb.co/bXcGcJF/OIP.jpg"

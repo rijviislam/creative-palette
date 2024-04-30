@@ -1,6 +1,6 @@
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-
 export default function MyArtAndCraftListCard({
   data,
   setFinalData,
@@ -18,8 +18,8 @@ export default function MyArtAndCraftListCard({
     subcategory_Name,
     customization,
   } = data;
+
   const handleDelete = (_id) => {
-    console.log(_id);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -35,7 +35,6 @@ export default function MyArtAndCraftListCard({
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
             if (data.deletedCount > 0) {
               Swal.fire({
                 title: "Deleted!",
@@ -43,7 +42,6 @@ export default function MyArtAndCraftListCard({
                 icon: "success",
               });
               const remaining = finalData.filter((data) => data._id !== _id);
-              console.log(remaining);
               setFinalData(remaining);
             }
           });
@@ -102,3 +100,9 @@ export default function MyArtAndCraftListCard({
     </div>
   );
 }
+
+MyArtAndCraftListCard.propTypes = {
+  data: PropTypes.object,
+  setFinalData: PropTypes.func,
+  finalData: PropTypes.object,
+};

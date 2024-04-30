@@ -1,10 +1,24 @@
+import { useTypewriter } from "react-simple-typewriter";
+
 export default function Testimonial() {
+  const [typewriter] = useTypewriter({
+    words: ["our customers say"],
+    loop: {},
+    typeSpeed: 100,
+    deleteSpeed: 40,
+  });
   return (
     <div className="flex items-center justify-center flex-col">
-      <h2 className="text-3xl font-semibold my-5">What our customers say</h2>
+      <h2 className="text-3xl font-semibold my-5">
+        <span>What </span>
+        {typewriter}
+      </h2>
 
-      <div className="flex lg:gap-8 md:gap-5 gap-3 mb-10">
-        <div className="card card-compact w-96 bg-base-100 shadow-xl border border-gray-500">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 md:gap-5 gap-3 mb-10  place-items-center">
+        <div
+          className="card card-compact w-80 bg-base-100 shadow-xl border border-gray-500
+        "
+        >
           <div className="card-body flex flex-col items-center justify-center">
             <div className="flex gap-1">
               <img
@@ -45,7 +59,7 @@ export default function Testimonial() {
             </div>
           </div>
         </div>
-        <div className="card card-compact w-96 bg-base-100 shadow-xl border border-gray-500">
+        <div className="card card-compact w-80 bg-base-100 shadow-xl border border-gray-500">
           <div className="card-body flex flex-col items-center justify-center">
             <div className="flex gap-1">
               <img
@@ -86,7 +100,7 @@ export default function Testimonial() {
             </div>
           </div>
         </div>
-        <div className="card card-compact w-96 bg-base-100 shadow-xl border border-gray-500">
+        <div className="card card-compact w-80 bg-base-100 shadow-xl border border-gray-500">
           <div className="card-body flex flex-col items-center justify-center">
             <div className="flex gap-1">
               <img
