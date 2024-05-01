@@ -41,7 +41,7 @@ export default function Update() {
       customization,
     };
     fetch(
-      `https://ph-assignment-10-arts-and-craft-server-3ukep3ro2.vercel.app/craftitemupdate/${_id}`,
+      `https://ph-assignment-10-arts-and-craft-server.vercel.app/craftitemupdate/${_id}`,
       {
         method: "PUT",
         headers: { "content-type": "application/json" },

@@ -31,7 +31,7 @@ export default function MyArtAndCraftListCard({
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(
-          `https://ph-assignment-10-arts-and-craft-server-3ukep3ro2.vercel.app/craftitem/${_id}`,
+          `https://ph-assignment-10-arts-and-craft-server.vercel.app/craftitem/${_id}`,
           {
             method: "DELETE",
           }

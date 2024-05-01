@@ -27,7 +27,7 @@ export default function AddCraftItem() {
       userImage,
     } = data;
     fetch(
-      "https://ph-assignment-10-arts-and-craft-server-3ukep3ro2.vercel.app/craftitem",
+      "https://ph-assignment-10-arts-and-craft-server.vercel.app/craftitem",
       {
         method: "POST",
         headers: {
